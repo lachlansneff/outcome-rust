@@ -1,10 +1,11 @@
 [package]
 name = "outcome"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Lachlan Sneff <lachlan.sneff@gmail.com>"]
 description = "A Success/Failure type for rust"
 license = "MIT"
 repository = "https://github.com/lachlansneff/outcome-rust.git"
+documentation = "https://docs.rs/outcome/"
 readme = "README.md"
 
 [dependencies]
