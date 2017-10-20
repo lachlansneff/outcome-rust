@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lachlansneff/outcome-rust.svg?branch=master)](https://travis-ci.org/lachlansneff/outcome-rust)
+
 # The outcome crate
 Type `Outcome` represents a success or failure: Every `Outcome` is either `Success` or `Failure`
 
