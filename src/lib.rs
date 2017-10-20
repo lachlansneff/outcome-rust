@@ -2,8 +2,10 @@
 //! Type `Outcome` represents a success or failure: Every `Outcome` is either `Success` or `Failure`
 //! 
 //! ```
+//! use outcome::*;
+//! 
 //! fn do_something() -> Outcome {
-//!     // ...
+//!     Success
 //! }
 //! 
 //! // The return value is an outcome
@@ -20,6 +22,8 @@
 //! Using `and_then` on an `Outcome`:
 //! 
 //! ```
+//! use outcome::*;
+//! 
 //! // Returns `Failure`
 //! let result = Outcome::from_bool(false);
 //! 
@@ -32,6 +36,8 @@
 //! Using `or_none` on an `Outcome` to transform it into an `Option`:
 //! 
 //! ```
+//! use outcome::*;
+//! 
 //! let result = Success;
 //! 
 //! // Encapsulates arg within an option
@@ -41,7 +47,7 @@
 //! }
 //! ```
 
-use Outcome::{Success, Failure};
+pub use Outcome::{Success, Failure};
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug, Hash)]
 pub enum Outcome {
@@ -57,6 +63,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Outcome::from_bool(true);
     /// 
     /// assert_eq!(result, Success);
@@ -73,6 +81,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Success;
     /// 
     /// assert!(result.is_success());
@@ -86,6 +96,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Failure;
     /// 
     /// assert!(result.is_failure());
@@ -99,9 +111,11 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Success;
     /// 
-    /// assert_eq!(result.or_none(42), Option(42));
+    /// assert_eq!(result.or_none(42), Some(42));
     /// ```
     pub fn or_none<T>(self, ok: T) -> Option<T> {
         match self {
@@ -115,6 +129,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Failure;
     /// 
     /// match result.or_err("good", "bad") {
@@ -134,6 +150,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Success;
     /// 
     /// assert_eq!(result.or_panic(42), 42);
@@ -150,6 +168,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Success;
     /// 
     /// assert_eq!(result.and(Failure), Failure);
@@ -166,6 +186,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Failure;
     /// 
     /// assert_eq!(result.or(Success), Success);
@@ -182,6 +204,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Success;
     /// 
     /// assert_eq!(result.and_then(|| Failure), Failure);
@@ -198,6 +222,8 @@ impl Outcome {
     /// # Examples
     /// 
     /// ```
+    /// use outcome::*;
+    /// 
     /// let result = Failure;
     /// 
     /// assert_eq!(result.or_then(|| Success), Success);

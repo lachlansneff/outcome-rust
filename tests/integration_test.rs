@@ -27,3 +27,9 @@ fn binary_ops() {
     assert_eq!(Success.or(Failure), Success);
     assert_eq!(Failure.or(Failure), Failure);
 }
+
+#[test]
+#[should_panic]
+fn test_or_panic() {
+    assert_eq!(Failure.or_panic(42), 42);
+}
