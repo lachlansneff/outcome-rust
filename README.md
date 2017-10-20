@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/lachlansneff/outcome-rust.svg?branch=master)](https://travis-ci.org/lachlansneff/outcome-rust)
+[![Latest Version](https://img.shields.io/crates/v/outcome.svg)](https://crates.io/crates/outcome)
 
 # The outcome crate
 Type `Outcome` represents a success or failure: Every `Outcome` is either `Success` or `Failure`
