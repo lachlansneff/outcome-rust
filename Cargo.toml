@@ -5,6 +5,6 @@ authors = ["Lachlan Sneff <lachlan.sneff@gmail.com>"]
 description = "A Success/Failure type for rust"
 license = "MIT"
 repository = "https://github.com/lachlansneff/outcome-rust.git"
-documentation = "https://docs.rs/outcome/0.1.0/outcome/"
+readme = "README.md"
 
 [dependencies]
