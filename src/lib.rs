@@ -131,12 +131,9 @@ impl Outcome {
     /// ```
     /// use outcome::*;
     /// 
-    /// let result = Failure;
+    /// let result = Success;
     /// 
-    /// match result.or_err("good", "bad") {
-    ///     Ok(success) => println!("{}", success),
-    ///     Err(err) => println!("{}", err),
-    /// }
+    /// assert_eq!(result.or_err("good", "bad"), Ok("good"));
     /// ```
     pub fn or_err<T, E>(self, good: T, err: E) -> Result<T, E> {
         match self {
