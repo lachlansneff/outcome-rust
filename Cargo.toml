@@ -2,5 +2,8 @@
 name = "outcome"
 version = "0.1.0"
 authors = ["Lachlan Sneff <lachlan.sneff@gmail.com>"]
+description = "A Success/Failure type for rust"
+license = "MIT"
+respository = "https://github.com/lachlansneff/outcome-rust.git"
 
 [dependencies]
