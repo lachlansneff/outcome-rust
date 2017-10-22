@@ -25,7 +25,7 @@
 //! use outcome::*;
 //! 
 //! // Returns `Failure`
-//! let result = Outcome::from_bool(false);
+//! let result = Outcome::from(false);
 //! 
 //! match result.and_then(|| Success) {
 //!     Success => println!("Success! :)"),
@@ -58,24 +58,6 @@ pub enum Outcome {
 }
 
 impl Outcome {
-    /// Returns `Success` if `good` is `true`, otherwise return `Failure`
-    /// 
-    /// # Examples
-    /// 
-    /// ```
-    /// use outcome::*;
-    /// 
-    /// let result = Outcome::from_bool(true);
-    /// 
-    /// assert_eq!(result, Success);
-    /// ```
-    pub fn from_bool(good: bool) -> Outcome {
-        match good {
-            true => Success,
-            false => Failure,
-        }
-    }
-
     /// Returns `true` if the outcome is a success
     /// 
     /// # Examples
@@ -229,6 +211,26 @@ impl Outcome {
         match self {
             Success => Success,
             Failure => f(),
+        }
+    }
+}
+
+impl From<bool> for Outcome {
+    /// Returns `Success` if `good` is true, otherwise return `Failure`
+    /// 
+    /// # Examples
+    /// 
+    /// ```
+    /// use outcome::*;
+    /// 
+    /// let result = Outcome::from(true);
+    /// 
+    /// assert_eq!(result, Success);
+    /// ```
+    fn from(good: bool) -> Self {
+        match good {
+            true => Success,
+            false => Failure,
         }
     }
 }
